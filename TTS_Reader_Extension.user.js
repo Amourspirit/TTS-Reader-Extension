@@ -1,12 +1,11 @@
 // ==UserScript==
 // @name			TTS Reader Extension
 // @namespace		https://github.com/Amourspirit/TTS-Reader-Extension
-// @version			0.1.0
+// @version			0.2.0
 // @description		Cleans up https://ttsreader.com tts app for cleaner experience
 // @run-at			document-end
-// @include			/^https?:\/\/www\.ttsreader\.com\*$/
-// @match			http://ttsreader.com/
-// @match			https://ttsreader.com/
+// @match			http://ttsreader.com/online-reader/
+// @match			https://ttsreader.com/online-reader/
 // @grant			none
 // @noframes
 // @license			MIT
@@ -18,17 +17,24 @@
 (function() {
     'use strict';
 
-	// Your code here...
-	$('.row.text-center').css('display', 'none');
-	$('.promotion').css('display', 'none');
+	document.getElementById('app_ad_banner_right').style.display = 'none';
+	document.getElementById('app_ad_banner_left').style.display = 'none';
+	document.getElementById('app_container').style.position = 'static';
+	document.getElementById('goPremiumBtn').style.display = 'none';
+	var app = document.getElementById('application');
+	app.style.padding = '0px';
+	app.style.margin = '0px';
+	app.style.right = '0px';
+	app.style.left = '0px';
+	app.style.width = '100%';
+	app.style.backgroundColor = 'white';
+	app.style.maxWidth = '100%';
 
-	$('.home-carousel').css('display', 'none');
-	$('.bar, .background-white').css('display', 'none');
-	$('#footer').css('display', 'none');
-	$('#copyright').css('display', 'none');
+	var appC = document.getElementById('app_container');
+	appC.style.right = '0px';
+	appC.style.left = '0px';
+	appC.style.width = '100%';
 
-	$('#application').css('overflow-x', '');
-	$('#application').css('background', 'transparent');
-	$('.parent-ad-container').css('display', 'none'); // hide app left and right add container
-	$('.col-md-8').css('width', '100%'); // expand main app container
+	var appP = document.getElementById('app_panel');
+	appP.style.top = '70px';
 })();
